@@ -1,5 +1,7 @@
-## Here it is! TRULY 106.
+## Here it is! Truly106.
 And several programs for the TRULY 106 pocket calculator. Enjoy.
+
+![Truly106](Truly106.png)
 
 The following notation will be used in the text:
 ```
