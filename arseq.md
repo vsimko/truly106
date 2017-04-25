@@ -5,7 +5,7 @@ I/II ENT ; KIN1 ; ENT ; KIN2 ; ENT ; KIN3 ; ENT ; KIN4 ;
      K3 ; + ; ( ; K1 ; - ; K2 ; ) ; * ; K4 ; = ;
 ```
 
-`A_r=A_s + (r-s)*d`.
+`A_r = A_s + (r-s)*d`.
 
 Zadávame postupne `r`, `s`, `A_s`, `d` a dostaneme `A_r`.
 - Memory used: 18 steps
