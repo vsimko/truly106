@@ -11,8 +11,8 @@ II   MR ; TAN ; * ; K4 ; = ; MIN ;
      M70 ; RND ; * ; K3 ; + ; K4 ; ÷ ; MR ; = ; KIN5 ; ÷ ; K2 ; = ; RND ;
      * ; K2 ; - ; K5 ; + ; K2 ; ÷ ; 2 ; + ; K1 ; = ; RND ; M9 ;
 ```
-- PRG: `(I)`-22k + `(II)`-33k = 55k
-- REG:
+- **Memory used:** `(I)`-22k + `(II)`-33k = 55k
+- **Registers used:**
   - `K1` = min
   - `K2` = (max) rozsah
   - `K3` = const
