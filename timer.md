@@ -1,6 +1,6 @@
 ### Primitive timer, clock and alarm
 ```
- #q# ∈ {36,37,38} podľa vyťaženia baterky
+ #q# ∈ {36,37,38} depends on the battery power level (calibrate for yourself)
  M0 ;
  I    + ; 1 ; = ; KIN1 ; X<=M ; C ; DEG ; DEG ; MR ; ÷ ; #q# ; ) ; DEG ; DMS
  M0 ;
@@ -9,28 +9,37 @@
 
 - PRG: (I)-15k + (II)-15k = 30k
 - REG:
-  - K1 = Počítadlo času
-  - M = maximálny čas, do ktorého sa bude počítať
+  - K1 = Time counter
+  - M = Maxiumum value of K1 to count to
 
-Tento program možno použiť ako hodiny, budík a stopky.
-Stlačením tlačidla `(I)` sa spustí program a stlačením `on/C` sa zastaví
-a zapamätá sa posledná časová hodnota, ktorá je uložená v `K1`.
-Po stlačení `(II)` sa zobrazí
+This program can be used as a clock, alarm or timer.
+By pressing `(I)` the program starts counting from the current value stored in register `K1`.
+Display turns off, but don't worry.
+If you press `on/C`, the programm stops counting and shows the last time value stored in the
+counter `K1`. To convert the value into Hours/Minutes/Seconds, press `(II)`:
 ```
- ┌───────────────────┐ HH = Hodiny
- │on deg             │ MM = Minúty
- │ HH"MM"SS.xx  ENTII│ SS = Sekundy
- └───────────────────┘ xx = Stotiny
+ ┌───────────────────┐ HH = Hours
+ │on deg             │ MM = Minutes
+ │ HH"MM"SS.xx  ENTII│ SS = Seconds
+ └───────────────────┘ xx = Hundredths
 ```
-Ak chceme použiť kalkulačku ako hodiny, musíme postupovať takto:
-Navolíme aktuálny čas `HH:MM:SS = 13320*HH + 2220*MM + 37*SS` Potom stlačíme `(I)`.
-Teraz už beží čas! Ak sa chceme naň pozrieť, stlačíme `on/C` a následne `(II)`
-nakoniec, aby mohol čas bežať ďalej, stlačíme `K1` a `(I)`.
+If you want to use your calculator as a real clock, follow these instuctions.
+Type your current time, e.g. by looking at your wrist watch, using this formula:
+```
+HH:MM:SS = 13320*HH + 2220*MM + 37*SS
+```
 
-**POZOR!!!** Hrozí zlyhanie systému. Ak máme nainštalovaný tento program,
-vypneme kalkulačku a potom ju zapneme bez resetu (ľubovolné. tlačidlo + `on/C`)
-a následne spustíme program `(I)`, začne kalkulačka vykonávať krokovací režim.
-Ten však bude zapnuty donekonečna, pretože program obsahuje príkaz skoku na
-začiatok a neobsahuje príkaz prerušenia.
+Then, press `(I)` and the clock is now ticking in the background. Of course, you cannot
+see anything on the display when the calculator is computing.
+To see the current time, press `on/C` and `(II)`.
+Be quick though, any seconds that you spend looking at the current time will add to the overall imprecission of the clock.
+To continue, press `K1` and `(I)`.
 
-**POMOC:** Vybrať baterku.
+**WARNING!!!** System might fail when this program is installed.
+It usually happens if you turn off the device, then turn it on without
+reseting the calculator (Reset = any key + `on/C`).
+Then, if you start the programm by pressing `(I)`, the calculator goes into
+a "stepping mode" which loops forever because the progam does not contain
+any jumps nor breaks.
+
+**HELP:** Take out the battery.
